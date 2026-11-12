@@ -2568,3 +2568,197 @@ body,
   color: #ffffff;
   border-color: #a65335;
 }
+
+
+/* =========================================
+   CONNECTCIRCLE - VIEWPORT & OVERFLOW FIX
+   ========================================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 320px;
+  margin: 0;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.app {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+section,
+.navbar,
+.footer {
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Prevent grid and flex children from expanding the page */
+.steps-grid,
+.feature-grid,
+.trust-lab-grid,
+.audience-section,
+.verification-section,
+.testimonial-grid,
+.pricing-grid {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.steps-grid > *,
+.feature-grid > *,
+.testimonial-grid > *,
+.pricing-grid > * {
+  min-width: 0;
+}
+
+/* =========================================
+   STEP SECTION - DARK MODE READABILITY
+   ========================================= */
+
+/* Section heading */
+:root[data-theme="dark"] .steps-section h1,
+:root[data-theme="dark"] .steps-section h2,
+:root[data-theme="dark"] .steps-section h3,
+:root[data-theme="dark"] .steps-section .eyebrow,
+:root[data-theme="dark"] .how-section h1,
+:root[data-theme="dark"] .how-section h2,
+:root[data-theme="dark"] .how-section > p {
+  color: #fff1e7;
+}
+
+/* Step cards - dark text on light cards */
+.steps-section .step-card,
+.how-section .step-card {
+  background: #e8dfd9;
+  border-color: #d8c8bd;
+}
+
+.steps-section .step-card h3,
+.steps-section .step-card h4,
+.how-section .step-card h3,
+.how-section .step-card h4 {
+  color: #49352c;
+}
+
+.steps-section .step-card p,
+.how-section .step-card p {
+  color: #684b3e;
+}
+
+.steps-section .step-card .step-number,
+.how-section .step-card .step-number {
+  color: #a65335;
+}
+
+.steps-section .step-card .step-icon,
+.how-section .step-card .step-icon {
+  background: #49352c;
+  color: #f5a17d;
+}
+
+/* Light mode should retain readable card text too */
+:root[data-theme="light"] .steps-section .step-card,
+:root[data-theme="light"] .how-section .step-card {
+  color: #49352c;
+}
+
+:root[data-theme="light"] .steps-section .step-card h3,
+:root[data-theme="light"] .how-section .step-card h3 {
+  color: #49352c;
+}
+
+/* =========================================
+   RESPONSIVE STEP CARDS
+   ========================================= */
+
+@media (max-width: 1000px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .steps-section,
+  .how-section {
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+}
+
+/* =========================================
+   CONNECTCIRCLE - NAVBAR THEME TOGGLE
+========================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-actions .theme-toggle {
+  position: static;
+  inset: auto;
+  z-index: auto;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  background: var(--paper);
+  color: var(--brown);
+
+  cursor: pointer;
+  box-shadow: none;
+  transition: all 0.25s ease;
+}
+
+.nav-actions .theme-toggle:hover {
+  background: var(--peach-light);
+  transform: translateY(-2px);
+}
+
+.nav-actions .theme-toggle:focus-visible {
+  outline: 3px solid var(--terracotta);
+  outline-offset: 3px;
+}
+
+.nav-actions .theme-toggle svg {
+  width: 19px;
+  height: 19px;
+}

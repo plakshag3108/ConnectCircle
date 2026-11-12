@@ -1,12 +1,14 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import RoleSelection from './pages/RoleSelection'
-import Register from './pages/Register'
-import Dashboard from './pages/Dashboard'
-import Login from './pages/Login'
-import { useState, useEffect } from "react";
-import './App.css'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Sun, Moon } from 'lucide-react';
 
-function Home() {
+import RoleSelection from './pages/RoleSelection';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+
+import './App.css';
+function Home({ theme, toggleTheme }) {
   return (
     <div className="app">
       {/* NAVIGATION */}
@@ -16,19 +18,53 @@ function Home() {
           ConnectCircle
         </Link>
 
-        <div className="nav-links">
-          <a href="#for-brands">For Brands</a>
-          <a href="#for-creators">For Creators</a>
-          <a href="#trust-lab">Trust Lab</a>
-          <a href="#pricing">Pricing</a>
-        </div>
+       <div className="nav-links">
+  <Link to="/dashboard/brand">
+    For Brands
+  </Link>
+
+  <Link to="/dashboard/influencer">
+    For Creators
+  </Link>
+
+  <Link to="/dashboard/consumer">
+    For Consumers
+  </Link>
+
+  <a href="#trust-lab">
+    Trust Lab
+  </a>
+
+  <a href="#pricing">
+    Pricing
+  </a>
+</div>
 
         <div className="nav-actions">
-          <Link to="/login" className="login-btn">Log in</Link>
-          <Link to="/get-started" className="primary-btn">
-            Get started
-          </Link>
-        </div>
+
+  <button
+    type="button"
+    className="theme-toggle"
+    onClick={toggleTheme}
+    aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+    title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+  >
+    {theme === 'light' ? (
+      <Moon size={19} />
+    ) : (
+      <Sun size={19} />
+    )}
+  </button>
+
+  <Link to="/login" className="login-btn">
+    Log in
+  </Link>
+
+  <Link to="/get-started" className="primary-btn">
+    Get started
+  </Link>
+
+</div>
       </nav>
 
       <main>
@@ -631,21 +667,13 @@ if (loading) {
  
   return (
     <BrowserRouter>
-      <button
-        type="button"
-        className="theme-toggle"
-        onClick={toggleTheme}
-        aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-      >
-        <span aria-hidden="true">
-          {theme === 'light' ? '☾' : '☀'}
-        </span>
-        <span>{theme === 'light' ? 'Dark mode' : 'Light mode'}</span>
-      </button>
+     
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+  path="/"
+  element={<Home theme={theme} toggleTheme={toggleTheme} />}
+/>
         <Route path="/get-started" element={<RoleSelection />} />
         <Route path="/register/:role" element={<Register />} />
         <Route path="/dashboard/:role" element={<Dashboard />} />

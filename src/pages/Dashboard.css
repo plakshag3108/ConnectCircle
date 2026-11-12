@@ -286,3 +286,70 @@
   .profile-demo { padding: 25px 18px; }
   .dashboard-disclaimer { margin-top: 30px; }
 }
+
+/* =====================================
+   CONNECTCIRCLE DASHBOARD THEME SYNC
+===================================== */
+
+.dashboard-layout {
+  background: var(--cream);
+  color: var(--brown);
+  min-height: 100vh;
+}
+
+.dashboard-main {
+  background: var(--cream);
+  color: var(--brown);
+}
+
+.dash-sidebar {
+  background: var(--paper);
+  color: var(--brown);
+  border-color: var(--border);
+}
+
+.dash-topbar {
+  background: var(--paper);
+  color: var(--brown);
+  border-color: var(--border);
+}
+
+.dash-content {
+  color: var(--brown);
+}
+
+.stat-card,
+.creator-card,
+.campaign-card,
+.survey-card,
+.insight-card,
+.profile-demo,
+.quick-actions button,
+.application-row {
+  background: var(--paper);
+  color: var(--brown);
+  border-color: var(--border);
+}
+
+.dashboard-layout h1,
+.dashboard-layout h2,
+.dashboard-layout h3,
+.dashboard-layout strong {
+  color: var(--brown);
+}
+
+.dashboard-layout p,
+.dashboard-layout small {
+  color: var(--muted);
+}
+
+.dashboard-layout input,
+.dashboard-layout select {
+  background: var(--paper);
+  color: var(--brown);
+  border-color: var(--border);
+}
+
+.dashboard-layout input::placeholder {
+  color: var(--muted);
+}
