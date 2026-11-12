@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import RoleSelection from './pages/RoleSelection'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
+import Login from './pages/Login'
 import { useState, useEffect } from "react";
 import './App.css'
 
@@ -648,7 +649,7 @@ if (loading) {
         <Route path="/get-started" element={<RoleSelection />} />
         <Route path="/register/:role" element={<Register />} />
         <Route path="/dashboard/:role" element={<Dashboard />} />
-        <Route path="/login" element={<LoginPlaceholder />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/privacy" element={<InfoPage title="Privacy" />} />
         <Route path="/terms" element={<InfoPage title="Terms" />} />
       </Routes>

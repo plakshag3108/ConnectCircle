@@ -1,4 +1,4 @@
-
+import './Dashboard.css'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ const creatorData = [
 ]
 
 const campaigns = [
-  { name: 'The Everyday Edit', brand: 'Mira Studio', category: 'Fashion', budget: '₹5,000–₹10,000', description: 'Show how everyday essentials fit into your personal style.', type: 'Instagram Reel' },
+  { name: 'The Everyday Edit', brand: 'Mira Studio', category: 'Fashion', budget: 'FREE', description: 'Show how everyday essentials fit into your personal style.', type: 'Instagram Reel' },
   { name: 'Little Rituals', brand: 'Earth & Essence', category: 'Beauty', budget: '₹3,000–₹8,000', description: 'Create authentic content around your favourite self-care rituals.', type: 'Reel + Story' },
   { name: 'A Taste of Home', brand: 'Goodfolk Foods', category: 'Food', budget: '₹4,000–₹7,000', description: 'Share a recipe or food moment that feels like home.', type: 'Instagram Post' },
 ]
