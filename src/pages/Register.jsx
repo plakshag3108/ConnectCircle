@@ -38,7 +38,9 @@ function Register() {
         <p>Start building meaningful connections.</p>
 
         <form onSubmit={(event) => event.preventDefault()}>
-          <label htmlFor="name">Full name</label>
+          <label htmlFor="name">
+            Full name <span className="required-star">*</span>
+          </label>
           <input
             id="name"
             name="name"
@@ -48,7 +50,9 @@ function Register() {
 
           {role === 'brand' && (
             <>
-              <label htmlFor="brandName">Brand name</label>
+              <label htmlFor="brandName">
+                Brand name <span className="required-star">*</span>
+              </label>
               <input
                 id="brandName"
                 name="brandName"
@@ -58,7 +62,9 @@ function Register() {
             </>
           )}
 
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="email">
+            Email address <span className="required-star">*</span>
+          </label>
           <input
             id="email"
             name="email"
@@ -67,7 +73,9 @@ function Register() {
             required
           />
 
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">
+            Password <span className="required-star">*</span>
+          </label>
           <input
             id="password"
             name="password"

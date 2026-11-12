@@ -94,26 +94,26 @@ function Login() {
         <form className="login-form" onSubmit={handleSubmit}>
 
           <div className="login-field">
-            <label htmlFor="login-email">
-              Email address
-            </label>
+           <label htmlFor="login-email">
+  Email address <span className="required-star">*</span>
+</label>
 
             <input
-              id="login-email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              autoComplete="email"
-              required
-            />
+  id="login-email"
+  name="email"
+  type="email"
+  placeholder="you@example.com"
+  value={email}
+  onChange={(event) => setEmail(event.target.value)}
+  autoComplete="email"
+  required
+/>
           </div>
 
           <div className="login-field">
             <label htmlFor="login-password">
-              Password
-            </label>
+  Password <span className="required-star">*</span>
+</label>
 
             <input
               id="login-password"

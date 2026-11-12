@@ -38,6 +38,8 @@ function Home({ theme, toggleTheme }) {
   <a href="#pricing">
     Pricing
   </a>
+
+  <Link to="/faq">FAQ</Link>
 </div>
 
         <div className="nav-actions">
@@ -132,6 +134,48 @@ function Home({ theme, toggleTheme }) {
             <span>Understand what audiences trust</span>
           </div>
         </section>
+
+
+{/* ABOUT CONNECTCIRCLE */}
+<section className="about-section" id="about-connectcircle">
+  <div className="section-heading">
+    <span className="eyebrow">ABOUT CONNECTCIRCLE</span>
+    <h2>Bringing brands, creators and consumers together.</h2>
+    <p>
+      ConnectCircle is a platform designed to make brand-creator
+      collaborations more meaningful, organised and transparent.
+      It brings brands and creators together while giving importance
+      to consumer trust and authentic communication.
+    </p>
+  </div>
+
+  <div className="about-grid">
+    <article className="about-card">
+      <h3>Our Purpose</h3>
+      <p>
+        To make it easier for brands to discover relevant creators
+        and build meaningful partnerships.
+      </p>
+    </article>
+
+    <article className="about-card">
+      <h3>Our Approach</h3>
+      <p>
+        To support organised campaigns, clear expectations and
+        transparent communication between users.
+      </p>
+    </article>
+
+    <article className="about-card">
+      <h3>Our Vision</h3>
+      <p>
+        To encourage authentic collaborations and help understand
+        the factors that influence consumer trust.
+      </p>
+    </article>
+  </div>
+</section>
+
 
         {/* FEATURES */}
         <section className="features" id="for-brands">
@@ -514,40 +558,48 @@ function Home({ theme, toggleTheme }) {
         </section>
       </main>
 
+
       {/* FOOTER */}
-      <footer className="footer" id="about">
-        <div className="footer-main">
-          <div>
-            <Link to="/" className="logo">
-              <span className="logo-icon">C</span>
-              ConnectCircle
-            </Link>
-            <p>Meaningful collaborations start here.</p>
-          </div>
+      
+<footer className="footer" id="about">
+  <div className="footer-main">
 
-          <div className="footer-links">
-            <a href="#for-brands">For Brands</a>
-            <a href="#for-creators">For Creators</a>
-            <a href="#trust-lab">Trust Lab</a>
-            <a href="#pricing">Pricing</a>
-          </div>
+    {/* Column 1: Brand */}
+    <div>
+      <Link to="/" className="logo">
+        <span className="logo-icon">C</span>
+        ConnectCircle
+      </Link>
+      <p>Meaningful collaborations start here.</p>
+    </div>
 
-          <div className="footer-links">
-            <a href="#about">About</a>
-            <a href="mailto:hello@connectcircle.example">Contact</a>
-            <Link to="/privacy">Privacy</Link>
-            <Link to="/terms">Terms</Link>
-          </div>
-        </div>
+    {/* Column 2: Explore */}
+    <div className="footer-links">
+      <a href="#for-brands">For Brands</a>
+      <a href="#for-creators">For Creators</a>
+      <a href="#trust-lab">Trust Lab</a>
+      <a href="#pricing">Pricing</a>
+    </div>
 
-        <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} ConnectCircle</span>
-          <span>
-            Research ethics: participation should be informed,
-            voluntary and transparent.
-          </span>
-        </div>
-      </footer>
+    {/* Column 3: Information */}
+    <div className="footer-links">
+      <a href="#about-connectcircle">About</a>
+      <Link to="/contact">Contact</Link>
+      <Link to="/privacy">Privacy</Link>
+      <Link to="/terms">Terms</Link>
+    </div>
+
+  </div>
+
+  <div className="footer-bottom">
+    <span>© {new Date().getFullYear()} ConnectCircle</span>
+    <span>
+      Research ethics: participation should be informed,
+      voluntary and transparent.
+    </span>
+  </div>
+</footer>
+
     </div>
   )
 }
@@ -577,20 +629,201 @@ function LoginPlaceholder() {
   )
 }
 
-function InfoPage({ title }) {
+
+function InfoPage({ type }) {
+  const isPrivacy = type === 'privacy'
+
   return (
-    <main className="role-page">
+    <main className="role-page info-page">
       <Link to="/" className="logo">
         <span className="logo-icon">C</span>
         ConnectCircle
       </Link>
-      <section className="role-content">
+
+      <section className="info-content">
         <span className="eyebrow">CONNECTCIRCLE</span>
-        <h1>{title}</h1>
-        <p>
-          This page needs its official content before the platform
-          is ready to launch. No final policy is being presented here.
+        <h1>
+          {isPrivacy ? 'Privacy Policy' : 'Terms & Conditions'}
+        </h1>
+
+        <p className="info-updated">
+          Project information | Last reviewed: November 2026
         </p>
+
+        {isPrivacy ? (
+          <>
+            <h2>1. Introduction</h2>
+            <p>
+              ConnectCircle is designed to connect brands, creators
+              and consumers through collaboration and consumer trust
+              insights. This policy explains how personal information
+              may be handled when using the platform.
+            </p>
+
+            <h2>2. Information We Collect</h2>
+            <p>
+              Depending on the features used, information may include
+              names, email addresses, account details, profile
+              information and information submitted through platform
+              forms.
+            </p>
+
+            <h2>3. How Information Is Used</h2>
+            <p>
+              Information may be used to create accounts, support
+              platform features, manage collaborations, maintain
+              account security and improve the user experience.
+            </p>
+
+            <h2>4. Information Sharing</h2>
+            <p>
+              Personal information should not be shared with
+              unauthorised parties. Information sharing between
+              platform users should be limited to what is necessary
+              for the relevant platform activity.
+            </p>
+
+            <h2>5. Data Security</h2>
+            <p>
+              Appropriate technical and organisational measures
+              should be used to protect account information and
+              prevent unauthorised access.
+            </p>
+
+            <h2>6. User Rights</h2>
+            <p>
+              Users should be able to request access to, correction
+              of or deletion of their personal information, subject
+              to applicable requirements.
+            </p>
+
+            <h2>7. Contact</h2>
+            <p>
+              For privacy-related questions, please contact our
+              project team through the Contact page.
+            </p>
+          </>
+        ) : (
+          <>
+            <h2>1. Acceptance of Terms</h2>
+            <p>
+              By accessing or using ConnectCircle, users agree to
+              follow the applicable platform terms and use the
+              platform responsibly.
+            </p>
+
+            <h2>2. User Accounts</h2>
+            <p>
+              Users are responsible for providing accurate
+              registration information and maintaining the
+              confidentiality of their account credentials.
+            </p>
+
+            <h2>3. User Responsibilities</h2>
+            <p>
+              Users should provide genuine information, communicate
+              respectfully and avoid misleading, fraudulent or
+              harmful activities.
+            </p>
+
+            <h2>4. Brand and Creator Collaborations</h2>
+            <p>
+              Brands and creators are responsible for agreeing on
+              campaign requirements, deliverables, timelines and
+              other collaboration terms before beginning a project.
+            </p>
+
+            <h2>5. Consumer Trust and Feedback</h2>
+            <p>
+              Feedback submitted through ConnectCircle should be
+              honest, respectful and based on genuine experiences
+              or clearly identified opinions.
+            </p>
+
+            <h2>6. Platform Use</h2>
+            <p>
+              Users must not misuse the platform, attempt
+              unauthorised access, disrupt services or violate
+              applicable laws.
+            </p>
+
+            <h2>7. Changes to Terms</h2>
+            <p>
+              These terms may be updated as platform features
+              and requirements evolve. Users should review the
+              latest version when changes are published.
+            </p>
+
+            <h2>8. Contact</h2>
+            <p>
+              For questions about these terms, please contact
+              our project team through the Contact page.
+            </p>
+          </>
+        )}
+
+        <Link to="/contact" className="primary-btn large-btn">
+          Contact our team
+        </Link>
+        <Link to="/" className="info-back-link">
+          ← Back to homepage
+        </Link>
+      </section>
+    </main>
+  )
+}
+
+
+
+function ContactPage() {
+  const creators = [
+    {
+      name: 'Plaksha Gupta',
+      email: 'plakshagupta.mca26@bvicam.in',
+    },
+    {
+      name: 'Nancy Gupta',
+      email: 'nancygupta.mca26@bvicam.in',
+    },
+    {
+      name: 'Rajneet Kaur',
+      email: 'rajneetkaur.mca26@bvicam.in',
+    },
+    {
+      name: 'Harshita Gulati',
+      email: 'harshitagulati.mca26@bvicam.in',
+    },
+  ]
+
+  return (
+    <main className="role-page info-page">
+      <Link to="/" className="logo">
+        <span className="logo-icon">C</span>
+        ConnectCircle
+      </Link>
+
+      <section className="info-content">
+        <span className="eyebrow">GET IN TOUCH</span>
+        <h1>Contact Our Team</h1>
+        <p>
+          Have a question or want to know more about ConnectCircle?
+          Feel free to reach out to our project team.
+        </p>
+
+        <div className="contact-grid">
+          {creators.map((creator) => (
+            <article className="contact-card" key={creator.email}>
+              <div className="contact-avatar">
+                {creator.name.charAt(0)}
+              </div>
+              <h3>{creator.name}</h3>
+              <a href={`mailto:${creator.email}`}>
+                {creator.email}
+              </a>
+            </article>
+          ))}
+        </div>
+
         <Link to="/" className="primary-btn large-btn">
           Back to homepage
         </Link>
@@ -598,6 +831,84 @@ function InfoPage({ title }) {
     </main>
   )
 }
+
+
+function FAQPage() {
+  const faqs = [
+    {
+      question: 'What is ConnectCircle?',
+      answer: 'ConnectCircle is a platform that connects brands, creators and consumers through meaningful collaborations and consumer trust insights.',
+    },
+    {
+      question: 'Who can join ConnectCircle?',
+      answer: 'Brands, creators and consumers can all join ConnectCircle using their respective account types.',
+    },
+    {
+      question: 'How can I create an account?',
+      answer: 'Click Get Started, select your role as a Brand, Creator or Consumer, and complete the registration form.',
+    },
+    {
+      question: 'How can brands connect with creators?',
+      answer: 'Brands can discover relevant creators and explore collaboration opportunities through the platform.',
+    },
+    {
+      question: 'Can creators apply for brand collaborations?',
+      answer: 'Creators can build their profiles and explore available brand collaboration opportunities.',
+    },
+    {
+      question: 'What is the ConnectCircle Trust Lab?',
+      answer: 'The Trust Lab focuses on consumer perceptions of sponsored content, authenticity, credibility and purchase intent.',
+    },
+    {
+      question: 'Can consumers share product feedback?',
+      answer: 'ConnectCircle is designed to support consumer feedback and insights about products and sponsored content.',
+    },
+    {
+      question: 'How can I contact the ConnectCircle team?',
+      answer: 'You can visit our Contact page to find the email addresses of all four project team members.',
+    },
+  ]
+
+  return (
+    <main className="role-page info-page">
+      <Link to="/" className="logo">
+        <span className="logo-icon">C</span>
+        ConnectCircle
+      </Link>
+
+      <section className="info-content faq-page-content">
+        <span className="eyebrow">NEED SOME HELP?</span>
+        <h1>Frequently Asked Questions</h1>
+        <p>
+          Find answers to common questions about ConnectCircle.
+        </p>
+
+        <div className="faq-container">
+          {faqs.map((faq, index) => (
+            <details className="faq-item" key={index}>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+
+        <p>Still have questions?</p>
+
+        <Link to="/contact" className="primary-btn large-btn">
+          Contact our team →
+        </Link>
+
+        <p>
+          <Link to="/" className="info-back-link">
+            ← Back to homepage
+          </Link>
+        </p>
+      </section>
+    </main>
+  )
+}
+
+
 
 function LoadingScreen() {
   const name = "ConnectCircle";
@@ -678,8 +989,10 @@ if (loading) {
         <Route path="/register/:role" element={<Register />} />
         <Route path="/dashboard/:role" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/privacy" element={<InfoPage title="Privacy" />} />
-        <Route path="/terms" element={<InfoPage title="Terms" />} />
+      <Route path="/contact" element={<ContactPage />} />
+<Route path="/privacy" element={<InfoPage type="privacy" />} />
+<Route path="/terms" element={<InfoPage type="terms" />} />
+<Route path="/faq" element={<FAQPage />} />
       </Routes>
     </BrowserRouter>
   )
